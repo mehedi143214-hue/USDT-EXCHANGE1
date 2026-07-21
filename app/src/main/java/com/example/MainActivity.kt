@@ -56,14 +56,13 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         
-
         enableEdgeToEdge()
         try {
             if (FirebaseApp.getApps(this).isEmpty()) {
                 val options = FirebaseOptions.Builder()
-                    .setApiKey("AIzaSyDkvjCWWC500Zto4Wqwt6gotEmZmkuBqBI")
-                    .setApplicationId("1:304994101736:android:766530237e59244a9b9c5d")
-                    .setProjectId("usdt-exchange-fd361")
+                    .setApiKey(BuildConfig.FIREBASE_API_KEY)
+                    .setApplicationId(BuildConfig.FIREBASE_APP_ID)
+                    .setProjectId(BuildConfig.FIREBASE_PROJECT_ID)
                     .build()
                 FirebaseApp.initializeApp(this, options)
             }

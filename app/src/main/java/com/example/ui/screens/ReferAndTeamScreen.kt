@@ -71,7 +71,7 @@ fun ReferAndTeamScreen(
         }
     }
     
-    val referralLink = "https://YOUR-SITE.netlify.app/?ref=$referralCode"
+    val referralLink = "https://github.com/mehedi143214-hue/USDT-EXCHANGE1/releases/latest"
 
     // Compute the 10 level network and commission data dynamically
     val teamData = remember(currentUser, allUsers, allOrders) {

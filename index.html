@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy & Sell USDT with INR | Secure P2P Exchange</title>
+    <style>
+        :root {
+            --primary: #00E676;
+            --primary-dark: #00B25E;
+            --secondary: #FF9800;
+            --bg-color: #0A110D;
+            --card-bg: #111D16;
+            --text-main: #FFFFFF;
+            --text-muted: #A0AAB2;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .header {
+            padding: 3rem 0;
+        }
+
+        .logo {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, #00E676, #00E5FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p.subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--primary);
+            color: #000;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 230, 118, 0.3);
+            margin-bottom: 2rem;
+        }
+
+        .download-btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 230, 118, 0.4);
+        }
+
+        .download-btn svg {
+            margin-right: 10px;
+            width: 24px;
+            height: 24px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background-color: var(--card-bg);
+            padding: 2rem 1.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .feature-card h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Referral Section */
+        .referral-box {
+            display: none; /* Hidden by default */
+            background-color: rgba(255, 152, 0, 0.1);
+            border: 1px solid var(--secondary);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .referral-box.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .referral-title {
+            color: var(--secondary);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .referral-code {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: 2px;
+            margin: 0.5rem 0;
+            padding: 0.5rem 1rem;
+            background-color: rgba(0,0,0,0.3);
+            border-radius: 8px;
+            display: inline-block;
+        }
+
+        .copy-btn {
+            background: var(--secondary);
+            color: #000;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 0.5rem;
+            transition: background 0.2s;
+        }
+
+        .copy-btn:hover {
+            background: #e68a00;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2rem; }
+            .container { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">💱</div>
+            <h1>Secure USDT Exchange</h1>
+            <p class="subtitle">Buy & Sell USDT with INR instantly. Secure P2P matching and fast UPI/Bank settlements.</p>
+
+            <div class="referral-box" id="referralBox">
+                <div class="referral-title">You've been invited! 🎁</div>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Copy this referral code and use it when signing up in the app to join your friend's network.</p>
+                <div class="referral-code" id="refCodeDisplay">---</div>
+                <br>
+                <button class="copy-btn" id="copyBtn" onclick="copyReferralCode()">Copy Code</button>
+            </div>
+
+            <a href="./app.apk" class="download-btn" id="downloadBtn">
+                <svg fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                </svg>
+                Download APK for Android
+            </a>
+
+            <div class="features">
+                <div class="feature-card">
+                    <h3>⚡ Instant Settlements</h3>
+                    <p>Fast payouts directly to your UPI or Bank account when selling USDT.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>💰 10-Level Referral</h3>
+                    <p>Earn passive commissions down to 10 levels of your network's trades.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🛡️ Secure Escrow</h3>
+                    <p>All trades are protected by our advanced escrow matching system.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Check for referral code in URL
+        const urlParams = new URLSearchParams(window.location.search);
+        let referralCode = urlParams.get('ref');
+
+        if (referralCode) {
+            // Clean up the code just in case
+            referralCode = referralCode.trim();
+            
+            // Show the referral box
+            document.getElementById('referralBox').classList.add('active');
+            document.getElementById('refCodeDisplay').innerText = referralCode;
+            
+            // Save to localStorage so if they refresh or come back it's still there
+            localStorage.setItem('usdt_app_referral', referralCode);
+        } else {
+            // Check if we have one saved in localStorage from a previous visit
+            const savedRef = localStorage.getItem('usdt_app_referral');
+            if (savedRef) {
+                referralCode = savedRef;
+                document.getElementById('referralBox').classList.add('active');
+                document.getElementById('refCodeDisplay').innerText = savedRef;
+            }
+        }
+
+        function copyReferralCode() {
+            if (!referralCode) return;
+            
+            navigator.clipboard.writeText(referralCode).then(() => {
+                const btn = document.getElementById('copyBtn');
+                btn.innerText = 'Copied! ✓';
+                btn.style.background = '#00E676';
+                
+                // Track click event (if the user clicks copy, prompt them to download next)
+                setTimeout(() => {
+                    btn.innerText = 'Copy Code';
+                    btn.style.background = 'var(--secondary)';
+                }, 3000);
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+                alert('Your referral code is: ' + referralCode);
+            });
+        }
+        
+        // Also handle the download button click if there's a referral
+        document.getElementById('downloadBtn').addEventListener('click', function(e) {
+            if (referralCode) {
+                // Auto copy to clipboard on download click if supported
+                navigator.clipboard.writeText(referralCode).catch(e => console.log('Clipboard write failed'));
+            }
+        });
+    </script>
+</body>
+</html>

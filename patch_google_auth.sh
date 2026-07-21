@@ -1,0 +1,1 @@
+sed -i 's/Toast.makeText(context, "Google Auth coming soon", Toast.LENGTH_SHORT).show()/Toast.makeText(context, "Google Auth initialization...", Toast.LENGTH_SHORT).show()/g' app/src/main/java/com/example/ui/screens/AuthScreens.kt

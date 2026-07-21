@@ -1,0 +1,8 @@
+{
+  "name": "USDT Exchange",
+  "description": "A modern, secure, professional USDT buying platform.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
